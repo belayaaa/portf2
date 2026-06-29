@@ -3,110 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal_Portfolio // Root</title>
+    <title>Anime_Terminal // Portfolio_OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Эффект старого ЭЛТ-монитора (сканирующие линии) -->
+    <!-- Задний фон: Падающий код Матрицы -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Эффект ЭЛТ-монитора -->
     <div class="crt-overlay"></div>
 
-    <div class="terminal">
+    <main class="terminal-container">
         
-        <!-- Шапка терминала -->
-        <header class="terminal-header">
-            <div class="system-status">128k RAM — 83259 Bytes Free</div>
-            <div class="error-banner">SYSTEM_STATUS: ACTIVE_DEVELOPER</div>
+        <!-- Верхняя инфо-панель в стиле аниме-интерфейса -->
+        <header class="cyber-header">
+            <div class="header-left">JUJUTSU_PORTFOLIO_v2.0</div>
+            <div class="header-right">RAM: 83259 BYTES FREE // SYSTEM: ACTIVE</div>
         </header>
 
-        <!-- Главный заголовок -->
-        <section class="glitch-container">
-            <h1 class="glitch-text">YOU HAVE BEEN... HIRED ?</h1>
-            <p class="subtitle">> INITIALIZING PORTFOLIO_OS...</p>
-        </section>
+        <!-- Навигация в стиле карточек/вкладок -->
+        <nav class="anime-nav">
+            <button class="nav-btn active" onclick="switchPage('about')">01 // ABOUT</button>
+            <button class="nav-btn" onclick="switchPage('frontend')">07 // FRONTEND</button>
+            <button class="nav-btn" onclick="switchPage('backend')">12 // BACKEND_DEVOPS</button>
+        </nav>
 
-        <!-- Обо мне -->
-        <section class="terminal-block">
-            <h2>[ ABOUT_ME ]</h2>
-            <p class="typing-text">> Full-Stack веб-разработчик. Создаю отказоустойчивые веб-приложения, оптимизирую базы данных и превращаю сложные макеты в чистый, рабочий код.</p>
-        </section>
+        <!-- СТРАНИЦА 1: ОБО МНЕ -->
+        <section id="page-about" class="page-content active">
+            <div class="anime-profile-card gojo-theme">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <h2>SATORU GOJO</h2>
+                    <span class="card-id">ID-071289</span>
+                </div>
+                <div class="card-body">
+                    <p class="role-title">LEAD FULL-STACK DEVELOPER</p>
+                    <p class="description">> Шесть лет коммерческой разработки. Укрощаю сложный legacy-код так же легко, как Годжо активирует «Бесконечность». Специализируюсь на создании масштабируемой архитектуры и быстрых интерфейсов.</p>
+                </div>
+            </div>
 
-        <!-- Ключевые навыки -->
-        <section class="terminal-block">
-            <h2>[ CORE_SKILLS ]</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <span class="skill-name">Frontend: React / Vue.js / TypeScript</span>
-                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">Backend: Node.js / Express / Python</span>
-                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">Databases: PostgreSQL / MongoDB / Redis</span>
-                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">DevOps: Docker / Git / CI-CD / Linux</span>
-                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+            <!-- Блок контактов -->
+            <div class="terminal-block">
+                <h3>[ ESTABLISH_CONNECTION ]</h3>
+                <div class="contact-grid">
+                    <a href="mailto:root@domain.com" class="contact-link">> EMAIL: root@domain.com</a>
+                    <a href="https://t.me" target="_blank" class="contact-link">> TELEGRAM: @cyber_wizard</a>
+                    <a href="https://github.com" target="_blank" class="contact-link">> GITHUB: ://github.com</a>
                 </div>
             </div>
         </section>
 
-        <!-- Проекты (Важный дополнительный блок) -->
-        <section class="terminal-block">
-            <h2>[ LATEST_PROJECTS ]</h2>
-            <div class="projects-list">
-                <div class="project-card">
-                    <h3>> AREA_51_DASHBOARD</h3>
-                    <p>Высоконагруженная CRM-система на React и Node.js. Оптимизировал запросы, снизив время загрузки на 40%.</p>
+        <!-- СТРАНИЦА 2: FRONTEND НАВЫКИ -->
+        <section id="page-frontend" class="page-content">
+            <div class="anime-profile-card sukuna-theme">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <h2>RYOMEN SUKUNA</h2>
+                    <span class="card-id">CURSE-999</span>
                 </div>
-                <div class="project-card">
-                    <h3>> CRYPTO_TRACKER_BOT</h3>
-                    <p>Телеграм-бот для мониторинга курсов валют на Python. Интегрированы API бирж и веб-хуки.</p>
+                <div class="card-body">
+                    <p class="role-title">FRONTEND_ENGINEER // VISUAL_MASTER</p>
+                    <p class="description">> Разрезаю тяжелые интерфейсы на легкие, переиспользуемые React-компоненты. Выжимаю максимум производительности из браузера.</p>
+                </div>
+            </div>
+
+            <div class="terminal-block">
+                <h3>[ TECH_STACK: FRONTEND ]</h3>
+                <div class="skills-container">
+                    <div class="skill-row">
+                        <span class="skill-lbl">React / Next.js (TypeScript)</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-cyan" style="width: 92%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lbl">Redux Toolkit / Zustand</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-cyan" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lbl">HTML5 / CSS3 / Tailwind CSS</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-cyan" style="width: 95%;"></div></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Логи / Опыт работы -->
-        <section class="terminal-block">
-            <h2>[ EXPERIENCE_LOGS ]</h2>
-            <table class="logs-table">
-                <thead>
-                    <tr>
-                        <th>ROLE</th>
-                        <th>COMPANY</th>
-                        <th>STATUS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Senior Web Dev</td>
-                        <td>@cyber_net</td>
-                        <td class="status-success">SUCCESS (2024-Present)</td>
-                    </tr>
-                    <tr>
-                        <td>Full-Stack Dev</td>
-                        <td>@matrix_inc</td>
-                        <td class="status-success">COMPLETED (2022-2024)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- СТРАНИЦА 3: BACKEND & DEVOPS -->
+        <section id="page-backend" class="page-content">
+            <div class="anime-profile-card toji-theme">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <h2>FUSHIGURO TOJI</h2>
+                    <span class="card-id">RESTRICTION-XX</span>
+                </div>
+                <div class="card-body">
+                    <p class="role-title">BACKEND & DEVOPS INFRASTRUCTURE</p>
+                    <p class="description">> Работаю с серверами на чистой физической силе и расчете. Строю бэкенд, который невозможно «пробить» или уронить высокой нагрузкой.</p>
+                </div>
+            </div>
+
+            <div class="terminal-block">
+                <h3>[ TECH_STACK: SERVER_SIDE ]</h3>
+                <div class="skills-container">
+                    <div class="skill-row">
+                        <span class="skill-lbl">Node.js / NestJS / Express</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-purple" style="width: 88%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lbl">PostgreSQL / MongoDB / Redis</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-purple" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lbl">Docker / CI-CD / Linux (Bash)</span>
+                        <div class="progress-bar-wrap"><div class="progress-fill fill-purple" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Контакты -->
-        <footer class="terminal-block contact-section">
-            <h2>[ ESTABLISH_CONNECTION ]</h2>
-            <div class="contact-links">
-                <a href="mailto:root@yourdomain.com" class="contact-item">> EMAIL: root@yourdomain.com</a>
-                <a href="https://github.com" target="_blank" class="contact-item">> GITHUB: ://github.com</a>
-                <a href="https://t.me" target="_blank" class="contact-item">> TELEGRAM: @your_handle</a>
-            </div>
-            <div class="cursor-line">> Awaiting input...<span class="blink-cursor">_</span></div>
+        <!-- Подвал -->
+        <footer class="cyber-footer">
+            <span class="blink-text">> Awaiting command..._</span>
         </footer>
+    </main>
 
-    </div>
-
+    <!-- Скрипты для эффекта Матрицы и вкладок -->
+    <script src="script.js"></script>
 </body>
 </html>
+
