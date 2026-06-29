@@ -1,0 +1,243 @@
+/* Базовые настройки стиля терминала */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace; /* Настоящий моноширинный шрифт */
+}
+
+body {
+    background-color: #030a04; /* Глубокий темно-зеленый */
+    color: #00ff33; /* Ядовито-зеленый текст */
+    overflow-x: hidden;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Эффект старого ЭЛТ монитора */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* Главный контейнер */
+.terminal {
+    max-width: 800px;
+    width: 100%;
+    background-color: #020703;
+    border: 2px solid #00ff33;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 255, 51, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 51, 0.5);
+}
+
+/* Шапка сайта */
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #00ff33;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+}
+
+.error-banner {
+    animation: pulse 2s infinite alternate;
+}
+
+/* Анимация мигания для текста в шапке */
+@keyframes pulse {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Заголовок с глитч-эффектом */
+.glitch-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.glitch-text {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #00aa22;
+}
+
+/* Блоки контента */
+.terminal-block {
+    margin-bottom: 40px;
+}
+
+.terminal-block h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.terminal-block p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Сетка навыков и прогресс-бары */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    border: 1px solid #00ff33;
+    background: transparent;
+    padding: 2px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #00ff33;
+    box-shadow: 0 0 10px #00ff33;
+    animation: loadProgress 1.5s ease-out forwards;
+}
+
+@keyframes loadProgress {
+    from { width: 0 !important; }
+}
+
+/* Карточки проектов */
+.projects-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project-card {
+    border: 1px dashed #00ff33;
+    padding: 15px;
+    background: rgba(0, 255, 51, 0.02);
+}
+
+.project-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+/* Таблица опыта */
+.logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.logs-table th, .logs-table td {
+    border: 1px solid #00ff33;
+    padding: 10px;
+    text-align: left;
+}
+
+.logs-table th {
+    background: rgba(0, 255, 51, 0.1);
+    color: #fff;
+}
+
+.status-success {
+    color: #00ff33;
+    font-weight: bold;
+}
+
+/* Блок контактов */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    color: #00ff33;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.contact-item:hover {
+    background: #00ff33;
+    color: #020703;
+    box-shadow: 0 0 10px #00ff33;
+    padding-right: 10px;
+}
+
+/* Мигающий курсор командной строки */
+.cursor-line {
+    margin-top: 20px;
+    color: #00aa22;
+}
+
+.blink-cursor {
+    font-weight: bold;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Адаптивность для смартфонов */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .terminal {
+        padding: 15px;
+    }
+
+    .terminal-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .glitch-text {
+        font-size: 1.4rem;
+    }
+
+    .projects-list {
+        grid-template-columns: 1fr; /* Карточки проектов встают в ряд */
+    }
+
+    .logs-table {
+        font-size: 0.75rem; /* Сжатие таблицы под экраны мобильных */
+    }
+    
+    .logs-table th, .logs-table td {
+        padding: 6px;
+    }
+}
